@@ -1,12 +1,24 @@
 # 23种设计模式   
 
-## A.创建模式  
+#### [工厂模式](doc/FactoryPattern.md)   
 
-#### 1.[工厂方法模式](doc/FactoryPattern.md)
+当类的创建步骤比较复杂，需要创建多个对象。将类的创建步骤交由工厂类实现，我们只要创建工厂类就可以。
 
-#### 2.[抽象工厂模式](doc/AbstractFactoryPattern.md)  
+#### [抽象工厂模式](doc/AbstractFactoryPattern.md)  
 
-### 3.[建造者模式](doc/BuilderPattern.md)  
+当工厂类有多个方法时，尽量提取成抽象接口。
+
+#### [单例模式](doc/singleton .md)
+
+对象只创建一次
+
+
+
+
+
+
+
+
 
 
 
@@ -38,7 +50,7 @@ https://www.cnblogs.com/geek6/p/3951677.html
 
 - 单例模式
 
-  ​
+  
 
 - [抽象工厂模式](http://wiki.jikexueyuan.com/project/java-design-pattern/abstract-factory-pattern.html)
 
@@ -46,7 +58,7 @@ https://www.cnblogs.com/geek6/p/3951677.html
 
 - 原型模式
 
-  ​
+  
 
 - [模板方法模式](http://wiki.jikexueyuan.com/project/java-design-pattern/template-method-pattern.html)
 
@@ -56,7 +68,7 @@ https://www.cnblogs.com/geek6/p/3951677.html
 
 - 访问者模式
 
-  ​
+  
 
 - [命令模式](http://wiki.jikexueyuan.com/project/java-design-pattern/command-pattern.html)
 
