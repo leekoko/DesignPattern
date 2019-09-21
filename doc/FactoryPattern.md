@@ -1,77 +1,102 @@
 # 工厂模式   
 
-什么是简单工厂模式？
+## 0.简单工厂模式
+
+前题摘要：简单工厂模式是一种编码习惯，不属于23种设计模式之一。
+
+特点：通过传参的方式来获取相应对象，不需要关心引入包等创建类的操作。
+
+缺点：简单工厂模式违背了开闭原则，工程类内容的扩展会影响其他功能的使用，扩展性不好。通过将简单工厂修改为反射方式，可以弥补扩展性不足。
+
+核心代码如下：
+
+```java
+public class VideoFactory {
+
+    public Video getVideo(Class c){
+        Video video = null;
+        try {
+            video = (Video) Class.forName(c.getName()).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return video;
+    }
+
+
+/*    public Video getVideo(String type){
+        //最简单工厂模式
+        if("java".equalsIgnoreCase(type)){
+            return new JavaVideo();
+        }else if("python".equalsIgnoreCase(type)){
+            return new PythonVideo();
+        }
+        return null;
+
+    }*/
+
+}
+```
+
+[源码](..\SourceCode\defign_pattern\src\main\java\com\geely\design\pattern\creational\simplefactory)
+
+### 源码解析
+
+new Calendar();  》 createCalendar();
+
+Class.forName();
+
+LoggerFactory.getLogger();
 
 ## 1.工厂方法模式
 
-M：什么是工厂方法模式呢？
+前提摘要：工厂方法是简单工厂的演进
 
-Z：这是一种创建类的模式，当一个类的创建步骤比较复杂，则可以引入工厂类，将复杂的创建类操作交给工厂实现即可，用户无需关心具体是怎么操作的。
+特点：工厂方法就是在简单工厂模式上添加：子类指定创建哪个对象
 
-M：什么算做复杂的创建步骤呢？
+缺点：增加类的个数，增加系统抽象性、理解难度
 
-Z：在我理解来复杂的创建步骤常见有两种情况：
+工厂类只定义规则
 
-1. 实例化过程复杂   
+```java
+public abstract class VideoFactory {  //也可以用interface，但抽象方法可能有已知方法
+    //将创捷对象的职能移交到子类
+    public abstract Video getVideo(); 
+}
+```
 
-   ```java
-       class Engine {
-           public void getStyle(){
-               System.out.println("这是汽车的发动机");
-           }
-       }
-       class Underpan {
-           public void getStyle(){
-               System.out.println("这是汽车的底盘");
-           }
-       }
-       class Wheel {
-           public void getStyle(){
-               System.out.println("这是汽车的轮胎");
-           }
-       }
-       public class Client {
-           public static void main(String[] args) {
-               Engine engine = new Engine();
-               Underpan underpan = new Underpan();
-               Wheel wheel = new Wheel();
-               ICar car = new Car(underpan, wheel, engine);
-               car.show();
-           }
-       }
-   ```
+子类创建对象
 
-   main方法里面的，要new三个对象作为new Car的参数。而对于使用者，其实只要能使用show方法就可以了。   
+```java
+public class JavaVideoFactory extends VideoFactory {
+    @Override
+    public Video getVideo() {
+        return new JavaVideo();
+    }
+}
+```
 
-   所以将其创建过程包装为工厂类，调用返回对象之后，再调用对象里面的方法。
+client调用时还是无需关系创建对象细节
 
-   ```java
-       interface IFactory {
-           public ICar createCar();
-       }
-       class Factory implements IFactory {
-           public ICar createCar() {
-               Engine engine = new Engine();
-               Underpan underpan = new Underpan();
-               Wheel wheel = new Wheel();
-               ICar car = new Car(underpan, wheel, engine);
-               return car;
-           }
-       }
-       public class Client {
-           public static void main(String[] args) {
-               IFactory factory = new Factory();
-               ICar car = factory.createCar();
-               car.show();
-           }
-       }
-   ```
+```java
+VideoFactory videoFactory = new JavaVideoFactory();
+Video video = videoFactory.getVideo();
+video.produce();
+```
 
-2. 新增一个新的类时，修改的代码复杂  
+[源码](..\SourceCode\defign_pattern\src\main\java\com\geely\design\pattern\creational\factorymethod)  
 
-   除了要修改工厂类的代码，使用者的代码也需要修改。而使用了工厂模式之后，使用者不用关心那么多，也同时实现了工厂端代码和使用者代码的解耦。
+### 源码解析  
 
-M：总结一下，提供被实例化的类的时候，尽量利用工厂类做到封装，便于解耦和简单调用。
+Collection的iterator方法，ArrayList实现
+
+URLStreamHandlerFactory的createURLStreamHandler方法，Launcher实现
+
+ILoggerFactory的getLogger方法
 
 ## 2.抽象工厂模式
 
@@ -127,3 +152,4 @@ Z：在使用的时候无需在意属于哪个模式，而是要注意当方法�
 ```
 
 M：总结一下，抽象工厂模式就是在兼顾工厂模式的前提下，尽量实现接口提取。工厂模式的原则为：提供被实例化的类的时候，尽量利用工厂类做到封装，便于解耦和简单调用。
+
