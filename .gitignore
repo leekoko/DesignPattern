@@ -20,7 +20,7 @@ RemoteSystemsTempFiles/
 # 屏蔽文件
 .recommenders/
 *.class
-
+.idea/
 
 
 # 忽略 eclipse创建的 Servers/ 文件夹

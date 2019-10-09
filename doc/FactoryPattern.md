@@ -48,9 +48,86 @@ public class VideoFactory {
 
 new Calendar();  》 createCalendar();
 
-Class.forName();
+```java
+...
+           if (aLocale.hasExtensions()) {
+            String caltype = aLocale.getUnicodeLocaleType("ca");
+            if (caltype != null) {
+                switch (caltype) {
+                case "buddhist":
+                cal = new BuddhistCalendar(zone, aLocale);
+                    break;
+                case "japanese":
+                    cal = new JapaneseImperialCalendar(zone, aLocale);
+                    break;
+                case "gregory":
+                    cal = new GregorianCalendar(zone, aLocale);
+                    break;
+                }
+            }
+        }
+        if (cal == null) {
+            // If no known calendar type is explicitly specified,
+            // perform the traditional way to create a Calendar:
+            // create a BuddhistCalendar for th_TH locale,
+            // a JapaneseImperialCalendar for ja_JP_JP locale, or
+            // a GregorianCalendar for any other locales.
+            // NOTE: The language, country and variant strings are interned.
+            if (aLocale.getLanguage() == "th" && aLocale.getCountry() == "TH") {
+                cal = new BuddhistCalendar(zone, aLocale);
+            } else if (aLocale.getVariant() == "JP" && aLocale.getLanguage() == "ja"
+                       && aLocale.getCountry() == "JP") {
+                cal = new JapaneseImperialCalendar(zone, aLocale);
+            } else {
+                cal = new GregorianCalendar(zone, aLocale);
+            }
+        }
+...
+```
 
 LoggerFactory.getLogger();
+
+```java
+     public final Logger getLogger(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("name argument cannot be null");
+        } else if ("ROOT".equalsIgnoreCase(name)) {
+            return this.root;
+        } else {
+            int i = 0;
+            Logger logger = this.root;
+            Logger childLogger = (Logger)this.loggerCache.get(name);
+            if (childLogger != null) {
+                return childLogger;
+            } else {
+                int h;
+                do {
+                    h = LoggerNameUtil.getSeparatorIndexOf(name, i);
+                    String childName;
+                    if (h == -1) {
+                        childName = name;
+                    } else {
+                        childName = name.substring(0, h);
+                    }
+
+                    i = h + 1;
+                    synchronized(logger) {
+                        childLogger = logger.getChildByName(childName);
+                        if (childLogger == null) {
+                            childLogger = logger.createChildByName(childName);
+                            this.loggerCache.put(childName, childLogger);
+                            this.incSize();
+                        }
+                    }
+
+                    logger = childLogger;
+                } while(h != -1);
+
+                return childLogger;
+            }
+        }
+    }
+```
 
 ## 1.工厂方法模式
 
