@@ -91,8 +91,6 @@ public class Singleton {
 }
 ```
 
-[源码](..\SourceCode\defign_pattern\src\main\java\com\geely\design\pattern\creational\singleton)  
-
 ## 枚举单例
 
 推荐的写法。可以防止序列化、反射破坏单例模式（饿汉模式）。
@@ -271,9 +269,9 @@ public class ContainerSingleton {
 }
 ```
 
+[源码](..\SourceCode\defign_pattern\src\main\java\com\geely\design\pattern\creational\singleton)  
 
-
-
+### 源码解析
 
 Runtime.java  饿汉式
 
