@@ -193,6 +193,4 @@ Spring的BeanDefinitionBuilder
 
 mybatis的SqlSessionFactoryBuilder,建造者包装的建造者：XMLConfigBuilder
 
-
-
 guava的CacheBuilder

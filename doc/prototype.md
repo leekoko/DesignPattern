@@ -1,8 +1,8 @@
 # 原型模式
 
-原型模式可以通过拷贝原型创建新的对象，以此来解决创建多个类消耗资源、创建对象过程繁琐的问题。
+原型模式可以通过拷贝原型创建新的对象，以此来解决创建多个对象消耗资源、创建对象过程繁琐的问题。
 
-特点：通过实现CloneAble接口的clone方法，对原型进行克隆
+特点：通过实现Cloneable接口的clone方法，对原型进行克隆
 
 缺点：克隆复杂对象容易引入风险
 
@@ -27,7 +27,7 @@ public class Mail implements Cloneable{
 
 ## 深克隆
 
-深克隆除了对对象进行克隆，还需要对属性进行克隆
+深克隆除了对对象进行克隆，还需要对属性进行克隆。可以通过Cloneable接口实现，也可以通过Serializable接口实现
 
 ```java
 public class Pig implements Cloneable{
@@ -56,3 +56,4 @@ ArrayList的clone()方法
 HashMap的clone()方法
 
 CacheKey的clone()方法
+
