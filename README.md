@@ -30,3 +30,5 @@
 
 
 
+#### [享元模式](doc/flyweight.md)
+

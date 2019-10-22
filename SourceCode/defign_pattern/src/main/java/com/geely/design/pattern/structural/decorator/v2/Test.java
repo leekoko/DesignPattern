@@ -9,6 +9,5 @@ public class Test {
         aBattercake = new SausageDecorator(aBattercake);
 
         System.out.println(aBattercake.getDesc() + " 销售价格：" + aBattercake.cost());
-
     }
 }
