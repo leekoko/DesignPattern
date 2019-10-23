@@ -28,7 +28,9 @@
 
 #### [适配器模式](doc/adapter.md)   
 
+#### [享元模式](doc/flyweight.md)    
 
+#### [组合模式](doc/composite.md)   
 
-#### [享元模式](doc/flyweight.md)
+#### [桥接模式](doc/bridge.md)   
 
