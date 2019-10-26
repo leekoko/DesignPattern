@@ -34,3 +34,12 @@
 
 #### [桥接模式](doc/bridge.md)   
 
+#### [代理模式](doc/proxy.md)   
+
+## 行为型
+
+#### [模板方法模式](doc/templatemethod.md)   
+
+#### [迭代器模式](doc/iterator.md)
+
+#### [策略模式](doc/strategy.md)
