@@ -1,5 +1,9 @@
 # 23种设计模式   
 
+## UML基础
+
+## 设计原则
+
 ## 创建型
 
 #### [工厂模式](doc/FactoryPattern.md)   
@@ -42,4 +46,43 @@
 
 #### [迭代器模式](doc/iterator.md)
 
-#### [策略模式](doc/strategy.md)
+#### [策略模式](doc/strategy.md)   
+
+#### [解释器模式](doc/interpreter.md)   
+
+#### [观察者模式](doc/observer.md)
+
+#### [备忘录模式](doc/memento.md)  
+
+#### [命令模式](doc/command.md)    
+
+#### [中介者模式](doc/mediator.md)    
+
+#### [责任链模式](doc/chainofresponsibility.md)
+
+#### [访问者模式](doc/visitor.md)    
+
+#### [状态模式](doc/state.md)
+
+## 总结
+
+常用模式：
+
+- 创建型
+  - 工厂方法
+  - 抽象工厂
+  - 建造者
+  - 单例
+- 结构型
+  - 适配器
+  - 装饰者
+  - 代理模式
+  - 外观模式
+  - 享元（较少）
+  - 桥接（较少）
+- 行为型
+  - 策略
+  - 责任链
+  - 模板方法
+  - 状态
+
