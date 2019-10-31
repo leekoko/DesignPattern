@@ -7,8 +7,6 @@ public abstract class AbstractDecorator extends ABattercake {
         this.aBattercake = aBattercake;
     }
 
-    protected abstract void doSomeThing();
-
     @Override
     protected String getDesc() {
         return this.aBattercake.getDesc();

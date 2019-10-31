@@ -5,10 +5,6 @@ public class EggDecorator extends AbstractDecorator{
         super(aBattercake);
     }
 
-    @Override
-    protected void doSomeThing() {
-
-    }
 
     @Override
     protected String getDesc() {

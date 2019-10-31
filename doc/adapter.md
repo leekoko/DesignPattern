@@ -28,17 +28,6 @@ public interface Target {
 }
 ```
 
-目标方法实现类
-
-```java
-public class ConcreteTarget implements Target {
-    @Override
-    public void request() {
-        System.out.println("ConcreteTarget目标方法");
-    }
-}
-```
-
 适配器类
 
 ```java
