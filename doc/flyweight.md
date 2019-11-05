@@ -32,28 +32,11 @@ public class EmployeeFactory {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [源码](..\SourceCode\defign_pattern\src\main\java\com\geely\design\pattern\structural\facade)    
-
-
 
 ## 源码解析
 
 Integer/Long  --  valueOf
 
 tomcat的GenericKeyObjectPoolConfig -- borrowObject
+

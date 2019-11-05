@@ -21,5 +21,4 @@ public abstract class CatalogComponent {
         throw new UnsupportedOperationException("不支持打印操作");
     }
 
-
 }

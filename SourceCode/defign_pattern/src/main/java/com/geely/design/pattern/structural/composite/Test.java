@@ -6,10 +6,9 @@ public class Test {
         CatalogComponent windowsCourse = new Course("Windows课程",21);
 
         CatalogComponent javaCourseCatalog = new CourseCatalog("Java课程目录",2);
-        Course mmailCourse1 = new Course("Java电商一期", 55);
-        Course mmailCourse2 = new Course("Java电商二期", 66);
-        Course designPattern = new Course("Java设计模式", 77);
-
+        CatalogComponent mmailCourse1 = new Course("Java电商一期", 55);
+        CatalogComponent mmailCourse2 = new Course("Java电商二期", 66);
+        CatalogComponent designPattern = new Course("Java设计模式", 77);
         javaCourseCatalog.add(mmailCourse1);
         javaCourseCatalog.add(mmailCourse2);
         javaCourseCatalog.add(designPattern);
