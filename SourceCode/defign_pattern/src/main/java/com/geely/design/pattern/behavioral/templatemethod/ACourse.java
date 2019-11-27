@@ -10,7 +10,7 @@ public abstract class ACourse {
         }
         this.packageCourse();
     }
-
+    //通用的内容添加final写死
     final void makePPT(){
         System.out.println("制作PPT");
     }
