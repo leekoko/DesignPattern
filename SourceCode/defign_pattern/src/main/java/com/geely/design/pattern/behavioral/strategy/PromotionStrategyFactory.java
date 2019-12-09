@@ -13,7 +13,7 @@ public class PromotionStrategyFactory {
 
     private static final PromotionStrategy NO_PROMOTION = new EmptyPromotionStrategy();
 
-    private PromotionStrategyFactory(){
+    public PromotionStrategyFactory(){
 
     }
 
@@ -22,7 +22,7 @@ public class PromotionStrategyFactory {
         return promotionStrategy == null ? null : promotionStrategy;
     }
 
-    private interface PromotionKey{
+    private interface PromotionKey extends PromotionStrategy {
         String LIJIAN = "LIJIAN";
         String FANXIAN = "FANXIAN";
         String MANJIAN = "MANJIAN";

@@ -1,6 +1,6 @@
 package com.geely.design.pattern.behavioral.strategy;
 
-public class PromotionActivity {
+public class PromotionActivity extends PromotionStrategyFactory {
     private PromotionStrategy promotionStrategy;
 
     public PromotionActivity(PromotionStrategy promotionStrategy) {
