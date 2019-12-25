@@ -11,7 +11,6 @@ public class Test {
         course.setVideo("Java设计模式精讲的视频");
 
         articleApprover.setNextAoorover(videoApprover);
-
         articleApprover.deploy(course);
     }
 
