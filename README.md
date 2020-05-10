@@ -86,3 +86,4 @@
   - 模板方法
   - 状态
 
+### [Head First 设计模式](doc/Head_First_DesignPattern.md)
