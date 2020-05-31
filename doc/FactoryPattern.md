@@ -27,7 +27,6 @@ public class VideoFactory {
         return video;
     }
 
-
 /*    public Video getVideo(String type){
         //最简单工厂模式
         if("java".equalsIgnoreCase(type)){
@@ -179,7 +178,7 @@ ILoggerFactory的getLogger方法
 
 前提摘要：工厂方法如果发生了比较大的扩展（同产品族属性扩展），容易发生类爆炸。
 
-特点：抽线工厂的工厂类处理的是一个产品族，子类指定创建哪个产品族的对象。适用于强调一些类相关的产品对象。
+特点：抽象工厂的工厂类处理的是一个产品族，子类指定创建哪个产品族的对象。适用于强调一些类相关的产品对象。
 
 缺点：产品族的扩展困难，违背开闭原则
 

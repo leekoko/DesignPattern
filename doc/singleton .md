@@ -98,6 +98,12 @@ public class Singleton {
 ```java
 public enum EnumInstance {
     INSTANCE;
+
+    public static EnumInstance getInstance(){
+        return INSTANCE;
+    }
+    
+    
     private Object data;
 
     public Object getData(){
@@ -106,10 +112,6 @@ public enum EnumInstance {
 
     public void setData(Object data){
         this.data = data;
-    }
-
-    public static EnumInstance getInstance(){
-        return INSTANCE;
     }
 
 }
@@ -172,7 +174,7 @@ private Object readResolve(){
 }
 ```
 
-因为``readObject``中会旁段是否有存在``readResolve``方法，有的话则用其返回的值。
+因为``readObject``中会判断是否有存在``readResolve``方法，有的话则用其返回的值。
 
 ### 源码解析
 
